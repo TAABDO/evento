@@ -19,7 +19,7 @@
     <div class="fixed left-0 top-0 w-64 h-full bg-[#f8f4f3] p-4 z-50 sidebar-menu transition-transform">
         <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
 
-            <h2 class="font-bold text-2xl">LOREM <span class="bg-[#f84525] text-white px-2 rounded-md">IPSUM</span></h2>
+            <h2 class="font-bold text-2xl"><span class="bg-[#f84525] text-white px-2 rounded-md">EvenTo</span></h2>
         </a>
         <ul class="mt-4">
             <span class="text-gray-400 font-bold">ADMIN</span>
@@ -47,44 +47,7 @@
             <li class="mb-1 group">
                 <a href="" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                     <i class='bx bx-list-ul mr-3 text-lg'></i>
-                    <span class="text-sm">Activities</span>
-                </a>
-            </li>
-            <span class="text-gray-400 font-bold">BLOG</span>
-            <li class="mb-1 group">
-                <a href="" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
-                    <i class='bx bxl-blogger mr-3 text-lg' ></i>
-                    <span class="text-sm">Post</span>
-                    <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
-                </a>
-                <ul class="pl-7 mt-2 hidden group-[.selected]:block">
-                    <li class="mb-4">
-                        <a href="" class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="" class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Categories</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="mb-1 group">
-                <a href="" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
-                    <i class='bx bx-archive mr-3 text-lg'></i>
-                    <span class="text-sm">Archive</span>
-                </a>
-            </li>
-            <span class="text-gray-400 font-bold">PERSONAL</span>
-            <li class="mb-1 group">
-                <a href="" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
-                    <i class='bx bx-bell mr-3 text-lg' ></i>
-                    <span class="text-sm">Notifications</span>
-                    <span class=" md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-600 bg-red-200 rounded-full">5</span>
-                </a>
-            </li>
-            <li class="mb-1 group">
-                <a href="" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
-                    <i class='bx bx-envelope mr-3 text-lg' ></i>
-                    <span class="text-sm">Messages</span>
-                    <span class=" md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-green-600 bg-green-200 rounded-full">2 New</span>
+                    <span class="text-sm">Categories</span>
                 </a>
             </li>
         </ul>
@@ -355,7 +318,7 @@
                     <a href="" class="text-[#f84525] font-medium text-sm hover:text-red-800">View</a>
                 </div>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+            {{--  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                 <div class="p-6 relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
                     <div class="rounded-t mb-0 px-0 border-0">
                         <div class="flex flex-wrap items-center px-4 py-2">
@@ -392,7 +355,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>  --}}
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
                 <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md lg:col-span-2">
                     <div class="flex justify-between mb-4 items-start">
