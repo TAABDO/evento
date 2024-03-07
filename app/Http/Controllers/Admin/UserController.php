@@ -3,56 +3,53 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserStoreRequest;
+use App\Models\Role;
 use App\Models\User;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function index()
     {
 
-        $users=User::All();
-       return view('Admin.dashadmin',compact('users'));
+        $users = User::All();
+
+        return view('Admin.dashadmin', compact('users'));
     }
 
     // public function index()
     // {
     //     $condidate = Auth::user();
     //     $experiences = Experience::where('user_id', $condidate->id)->get();
-    //     // $Skills = $condidate->Skills;
+    // $Skills = $condidate->Skills;
 
-    //     return view('condidates.condidate', compact('condidate', 'experiences'));
     // }
 
-    public function Show($id)
+    public function Show(User $admin)
     {
-        $users = Auth::user();
 
-        return view('Admin.update', compact('users'));
+        $roles = Role::All();
+        $statuses = User::distinct()->pluck('status')->toArray();
+
+        return view('Admin.dashadmin.users.update', compact('admin', 'roles', 'statuses'));
     }
 
-    public function edit()
+    public function edit(User $admin)
     {
-        return view('Admin.update');
+
+        return view('Admin.dashadmin.users.update', compact('admin'));
     }
 
-    public function update(UserUpdateRequest $request)
+    public function update(UserStoreRequest $request, User $admin)
     {
-        $condidate = Auth::user();
-        $data = $request->all();
-
-        // if ($request->hasFile('user')) {
-        //     $condidate->clearMediaCollection('user');
-        //     $condidate->addMediaFromRequest('user')->toMediaCollection('user');
-        // }
-
-        $condidate->update($data);
-
-        return redirect()->route('condidate.index');
+        $data = $request->validated();
+        $admin->roles()->sync([$request->role_id]);
+        return redirect()->route('admin.index');
     }
 
-    // public function destroy(Event $event)
-    // {
-    //     //
-    // }
+    public function destroy($id)
+    {
+
+    }
 }

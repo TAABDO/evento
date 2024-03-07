@@ -1,14 +1,16 @@
 <?php
 
 use App\Http\Controllers\Admin\UserController as AdminUsersController;
+use App\Http\Controllers\BanUserController;
 use App\Http\Controllers\Organizer\EventController;
 use App\Http\Controllers\Organizer\OrganizerController;
 use App\Http\Controllers\Participant\ParticipantController;
-use App\Http\Controllers\PDFController;
 
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Event;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -58,7 +60,7 @@ Route::get('/', [EventController::class, 'getAcceptedEvents']);
 
 //     return view('welcome', compact('events'));
 // })->name('home');
-
+Route::get('/banuser/{id}', [BanUserController::class, 'banuser'])->name('banuser');
 // ======================
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
