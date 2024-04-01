@@ -1,48 +1,57 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryStoreRequest;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
+    public function index()
+    {
+        $Categories = Category::all();
 
+        return view('Admin.dashadmin.category.category', compact('Categories'));
+    }
 
-public function index()
-{
-    $users=User::all();
-return view('Admin.dashadmin',compact('$users'));
-}
+    public function create()
+    {
+        return view('Admin.dashadmin.category.create');
+    }
 
-public function create()
-{
+    public function store(CategoryStoreRequest $request)
+    {
+        $validatedData = $request->validated();
 
-}
-public function store()
-{
+        Category::create($validatedData);
 
-}
-public function show()
-{
+        return redirect()->route('admin.index')->with('success', 'Category created successfully.');
+    }
 
-}
-public function edit()
-{
+    public function show()
+    {
 
-}
+    }
 
-public function update()
-{
+    public function edit(Category $category)
+    {
+        return view('Admin.dashadmin.category.update', compact('category'));
+    }
 
-}
+    public function update(CategoryStoreRequest $request, $id)
+    {
+        $category = Category::find($id);
+        $category->update($request->all());
 
-public function destroy()
-{
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
+    }
 
-}
+    public function destroy($id)
+    {
+        $category = Category::find($id);
+        $category->delete();
 
-
-
-
-
+        return redirect()->back();
+    }
 }

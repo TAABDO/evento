@@ -12,12 +12,10 @@
 
 <body class="bg-gray-100">
 
-
-    <nav class="bg-white border-gray-200 dark:bg-gray-200 dark:border-gray-200">
+    <nav class="bg-white border-gray-700 dark:bg-gray-700 dark:border-gray-200">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-black">Flowbite</span>
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-black">EvenTo</span>
             </a>
             <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                 <button type="button"
@@ -25,11 +23,11 @@
                     id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                     data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
-                    <img class="w-8 h-8 rounded-full" src="{{ $participants->getFirstMediaUrl('user') }}"
+                    <img class="w-8 h-8 rounded-full" src="{{ $participants->getFirstMediaUrl('image') }}"
                         alt="user photo">
                 </button>
                 <!-- Dropdown menu -->
-                <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-00 dark:divide-gray-00"
+                <div class="z-50 hidden my-4 text-base list-none bg-gray-500 divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-00 dark:divide-gray-00"
                     id="user-dropdown">
                     <div class="px-4 py-3">
                         <span class="block text-sm text-gray-900 dark:text-white">{{ Auth::user()->name }}</span>
@@ -39,22 +37,17 @@
                     <ul class="py-2" aria-labelledby="user-menu-button">
                         <li>
                             <a href="#"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-00 dark:hover:bg-gray-00 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-200 dark:hover:text-white">Profile</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-00 dark:text-gray-200 dark:hover:text-white">Profile</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-00 dark:text-gray-200 dark:hover:text-white">Favoris</a>
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-200 dark:hover:text-white">Reservation</a>
                         </li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-
                                 <input type="submit"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-200 dark:hover:text-white"
                                     value="logout ">
                             </form>
                         </li>
@@ -75,40 +68,71 @@
                 <ul
                     class="flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 dark:bg-gray-00 md:dark:bg-gray-00 ">
                     <li>
-                        <a href="{{ route('home') }}"
+                        <a href="{{ route('welcome') }}"
                             class="block py-2 px-3 text-gray-900 bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
                             aria-current="page">Publication</a>
                     </li>
-
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container mx-auto py-10">
-        <div
-            class="bg-gray-200 rounded-lg shadow-lg flex flex-col md:flex-row justify-center items-center md:space-x-8 p-6">
-            <div class="md:w-1/3">
-                <img src="{{ $participants->getFirstMediaUrl('user') }}"
-                    class="rounded-full w-60 h-60 md:w-72 md:h-72 shadow-xl" alt="">
-            </div>
-            <div class="flex flex-col justify-evenly gap-10 md:w-2/3 md:pl-8 pt-4 md:pt-0 ">
-                <div>
-                    <h1 class="text-2xl font-bold text-gray-800"> {{ $participants->name }}</h1>
+    <div class="container mx-auto py-10 flex flex-col items-center md:flex-row justify-center md:items-end gap-20">
+        <!-- Profile Section -->
+        <div id="profile" class="w-full lg:w-4/5 mr-0 md:mr-10 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
+            <div class="p-4 md:p-12 text-center lg:text-left">
+                <!-- Profile Image -->
+                <div class="hidden lg:block rounded-none lg:rounded-lg shadow-2xl mb-8">
+                    <img src="{{ $participants->getFirstMediaUrl('image') }}" class="rounded-lg shadow-xl" alt="{{ $participants->name }}">
                 </div>
-                <div class="flex flex-col md:flex-row justify-between mt-2 text-gray-600">
-                    <h3 class="mt-2 md:mt-0 md:ml-1"><span class="text-gray-900 text-lg">Address :</span>
-                        {{ $participants->address }}</h3>
-                    <h3 class="mt-2 md:mt-0 md:ml-1"><span class="text-gray-900 text-lg">Phone : </span>
-                        {{ $participants->phone }}</h3>
+
+                <div class="flex flex-col justify-evenly gap-10 md:w-2/3 md:pl-8 pt-4 md:pt-0">
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">{{ $participants->name }}</h1>
+                    </div>
+                    <hr>
+                    <div class="flex flex-col md:flex-row justify-between mt-2 text-gray-600">
+                        <h3 class="mt-2 md:mt-0 md:ml-1">
+                            <span class="text-gray-900 text-lg">Address :</span> {{ $participants->address }}
+                        </h3>
+                        <hr class="md:hidden">
+                        <h3 class="mt-2 md:mt-0 md:ml-1">
+                            <span class="text-gray-900 text-lg">Phone :</span> {{ $participants->phone }}
+                        </h3>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <a href="{{ route('participant.update', $participants->id) }}"> <button type="button"
-                        class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Update</button>
-                </a>
+                <div class="mt-10">
+                    <a href="{{ route('participant.update', $participants->id) }}">
+                        <button type="button" class="text-white rounded-full bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Update</button>
+                    </a>
+                </div>
             </div>
         </div>
+
+        <!-- Reservation Section -->
+        <div class="container mx-auto px-4 opacity-75">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">My Last Reservation</h2>
+            <div class="grid grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <div class="relative overflow-hidden">
+                        <img class="object-cover w-full h-full" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Product">
+                        <div class="absolute inset-0 bg-black opacity-40"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button class="bg-white text-gray-900 py-2 px-6 rounded-full font-bold hover:bg-gray-300">View Product</button>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mt-4">Product Name</h3>
+                    <p class="text-gray-500 text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ante justo. Integer euismod libero id mauris malesuada tincidunt.</p>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-gray-900 font-bold text-lg">$29.99</span>
+                        <button class="bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 
 </body>
 

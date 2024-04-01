@@ -18,9 +18,9 @@ class Reservation extends Model
          'user_id',
          'event_id',
          'delated_at',
-        'created_at',
-        'updated_at',
+         'created_at',
+         'updated_at',
     ];
 
-    
+
 }

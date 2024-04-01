@@ -76,18 +76,18 @@
          </div>
         <div class="bg-gray-200 rounded-lg shadow-lg flex flex-col md:flex-row justify-center items-center md:space-x-8 p-6">
             <div class="md:w-1/3">
-                <img src="{{ $participants->getFirstMediaUrl('user') }}" class="rounded-full w-60 h-60 md:w-72 md:h-72 shadow-xl" alt="">
+                <img src="{{ $participants->getFirstMediaUrl('image') }}" class="rounded-full w-60 h-60 md:w-72 md:h-72 shadow-xl" alt="">
                 </div>
                <form action="{{ route('participant.update', $participants->id) }}" method="POST" class="md:w-2/3 pt-4 md:pt-0" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
                 <div class="md:w-1/3 mb-10">
-                <input type="file" id="image-input" name="user" class="">
+                <input type="file" id="image-input" name="image" class="">
                 </div>
 
                 <div>
-                    <input type="text" name="fullname" value="{{ $participants->fullname }}" class="input" placeholder="Address">
+                    <input type="text" name="name" value="{{ $participants->name }}" class="input" placeholder="Address">
 
                 </div>
 

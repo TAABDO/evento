@@ -10,40 +10,21 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="max-w-md mx-auto bg-white dark:bg-gray-800 shadow-md rounded-md overflow-hidden">
-        <div class="text-center bg-gray-100 dark:bg-gray-700 py-4">
-            <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Create User</h2>
-        </div>
-        <form class="p-6" action="#" method="POST">
-            <!-- User Name -->
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold mb-8 text-center">Create Category</h1>
+        <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data" class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+            @csrf
+            @method('POST')
             <div class="mb-4">
-                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
-                <input type="text" name="name" id="name" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Enter user name">
+                <label for="name" class="block text-sm font-medium text-gray-700">Category Name</label>
+                <input type="text" name="name" id="name" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
             </div>
-            <!-- Status -->
             <div class="mb-4">
-                <label for="status" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Status</label>
-                <select id="status" name="status" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white dark:bg-gray-800 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                    <option>Active</option>
-                    <option>Inactive</option>
-                </select>
-            </div>
-            <!-- Role -->
-            <div class="mb-4">
-                <label for="role" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Role</label>
-                <select id="role" name="role" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white dark:bg-gray-800 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                    <option>Administrator</option>
-                    <option>User</option>
-                </select>
-            </div>
-            <!-- Create Button -->
-            <div class="mt-6">
-                <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Create User
+                <button type="submit" name="submit" class="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Create Category
                 </button>
             </div>
         </form>
     </div>
-
 </body>
 </html>

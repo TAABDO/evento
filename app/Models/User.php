@@ -59,6 +59,11 @@ class User extends Authenticatable implements HasMedia
 
     public function events()
     {
-        return $this->belongsToMany(Event::class);
+        return $this->belongsToMany(Event::class, 'reservations')->withPivot('status');
+    }
+
+    public function hasRole($role)
+    {
+        return $this->roles->contains('name', $role);
     }
 }

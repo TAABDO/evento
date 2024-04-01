@@ -17,14 +17,6 @@
         <form action="{{ route('admin.update', $admin->id) }}" method="POST" class="px-6 py-4">
             @csrf
             @method('PUT')
-
-            {{--  <div class="mb-4">
-                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
-                <input type="text" name="name" id="name" value="{{ $admin->name }}"
-                    class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    placeholder="Enter user name">
-            </div>  --}}
-
             <div class="mb-4">
                 <label for="role" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Role</label>
                 <select id="role" name="role_id"

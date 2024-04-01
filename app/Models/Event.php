@@ -19,7 +19,6 @@ class Event extends Model implements HasMedia
         'location',
         'description',
         'availablePlaces',
-        'picture',
         'status',
         'isAuto',
         'category_id',
@@ -31,7 +30,7 @@ class Event extends Model implements HasMedia
 
     public function users()
     {
-         return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'reservations')->withPivot('status');
     }
 
     public function category()

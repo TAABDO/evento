@@ -31,11 +31,16 @@ class AuthenticatedSessionController extends Controller
 
     $user = Auth::user();
 
-    if ($user->roles->contains('name', 'Admin')) {
+    if ($user->roles->contains('name', 'admin'))
+    {
         return redirect()->route('admin.index');
-    } elseif ($user->roles->contains('name', 'Participant')) {
+
+    } elseif ($user->roles->contains('name', 'participant'))
+    {
         return redirect()->route('participant.index');
-    } elseif ($user->roles->contains('name', 'Organizer')) {
+
+    } elseif ($user->roles->contains('name', 'organizer'))
+    {
         return redirect()->route('organizer.index');
     }
 

@@ -1,7 +1,6 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,46 +10,27 @@
 
     <title>Document</title>
 </head>
+
 <body>
 
-
-    <div class="max-w-md mx-auto bg-white dark:bg-gray-800 shadow-md rounded-md overflow-hidden">
-        <div class="text-center bg-gray-100 dark:bg-gray-700 py-4">
-            <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Update User</h2>
-        </div>
-        <form class="p-6" action="#" method="POST">
-        @csrf
-           <div class="mb-4">
-                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
-                <input type="text" name="name" id="name" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Enter user name">
-            </div>
-
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold mb-8 text-center">Update Category</h1>
+        <form action="{{ route('categories.update', $category->id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
             <div class="mb-4">
-                <label for="status" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Status</label>
-                <select id="status" name="status" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white dark:bg-gray-800 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                    <option>Active</option>
-                    <option>Inactive</option>
-                </select>
+                <label for="name" class="block text-sm font-medium text-gray-700">Category Name</label>
+                <input type="text" name="name" id="name" value="{{ $category->name }}"
+                    class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
             </div>
-
             <div class="mb-4">
-                <label for="role" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Role</label>
-                <select id="role" name="roles" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white dark:bg-gray-800 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                    <option>Administrator</option>
-                    <option>User</option>
-                </select>
-            </div>
-
-            <div class="mt-6">
-                <button type="submit" name="submit" class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Update User
+                <button type="submit"
+                    class="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Update Category
                 </button>
             </div>
         </form>
     </div>
-
 </body>
+
 </html>
-
-
-

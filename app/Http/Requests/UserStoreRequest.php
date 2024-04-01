@@ -22,12 +22,13 @@ class UserStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'sometimes|string|max:255',
-            // 'email' => 'required|string|email|max:255|unique:users,email,' . $this->user->id,
+            'name' => 'nullable|string|max:255',
+            'email' => 'sometimes|string|email|max:255|unique:users,email,',
+            //  . $this->user->id,
             'password' => 'nullable|string|min:8|confirmed',
             'address' => 'nullable|string|max:255',
             'phone' => 'nullable|string|max:20',
-            'status' => 'sometimes|string|in:active,inactive',
+            'status' => 'sometimes|string|in:active,banned',
             'image'=> 'sometimes|mimes:jpg,jpeg,png,gif',
 
         ];

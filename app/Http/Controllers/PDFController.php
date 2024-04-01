@@ -12,6 +12,7 @@ class PDFController extends Controller
     public function index()
     {
        $users =Auth::user();
+       
     $pdf = Pdf::loadView('pdf',['users'=>$users]);
     return $pdf->download('invoice.pdf');
     }

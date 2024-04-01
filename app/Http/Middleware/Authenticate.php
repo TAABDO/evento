@@ -12,6 +12,17 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
-        return $request->expectsJson() ? null : route('login');
+        $this->authenticate($request, $guards);
+
+        if (auth()->check()) {
+            $user = auth()->user();
+            if ($user->status == 'banned') {
+                auth()->logout();
+
+                return redirect()->route('login')->with('message', 'You are banned because: '.$user->ban_reason);
+            }
+        }
+
+        return $next($request);
     }
 }

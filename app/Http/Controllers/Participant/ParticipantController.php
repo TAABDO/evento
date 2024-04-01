@@ -30,18 +30,19 @@ class ParticipantController extends Controller
         return view('participants.update');
     }
 
-    // public function update(ParticipantStoreRequest $request)
-    // {
-    //     $condidate = Auth::user();
-    //     $data = $request->all();
+    public function update(ParticipantStoreRequest $request)
+    {
+        $participant = Auth::user();
+        $data = $request->all();
 
-    //     if ($request->hasFile('user')) {
-    //         $condidate->clearMediaCollection('user');
-    //         $condidate->addMediaFromRequest('user')->toMediaCollection('user');
-    //     }
+        if ($request->hasFile('image')) {
+            $participant->clearMediaCollection('image');
+            $participant->addMediaFromRequest('image')->toMediaCollection('image');
+        }
 
-    //     $condidate->update($data);
+        $participant->update($data);
 
-    //     return redirect()->route('participant.index');
-    // }
+        return redirect()->route('participant.index');
+    }
+
 }

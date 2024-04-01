@@ -10,8 +10,16 @@ class BanUserController extends Controller
     public function banuser($id)
     {
         $user = User::find($id);
-        $user->update(['status' => 'banned']);
+        if (!$user) {
+            return redirect()->route('admin.index')->with('error', 'User not found.');
+        }
 
-        return redirect(route('admin.index'));
+        if ($user->status === 'active') {
+            $user->update(['status' => 'banned']);
+        } else {
+            $user->update(['status' => 'active']);
+        }
+
+        return redirect()->route('admin.index')->with('success', 'User status updated successfully.');
     }
 }

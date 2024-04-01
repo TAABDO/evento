@@ -14,10 +14,4 @@ class OrganizerController extends Controller
         return view('Organizer.dashorga',compact('events'));
     }
 
-    public function create ()
-    {
-        
-    }
-
-
 }

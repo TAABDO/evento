@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
+use App\Models\Event;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -14,8 +15,10 @@ class UserController extends Controller
     {
 
         $users = User::All();
+        $statuses = User::distinct()->pluck('status')->toArray();
+        $adminevents = Event::all();
 
-        return view('Admin.dashadmin', compact('users'));
+        return view('Admin.dashadmin', compact('users','statuses','adminevents'));
     }
 
     // public function index()
@@ -48,8 +51,8 @@ class UserController extends Controller
         return redirect()->route('admin.index');
     }
 
-    public function destroy($id)
-    {
+    // public function destroy($id)
+    // {
 
-    }
+    // }
 }

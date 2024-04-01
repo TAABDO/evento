@@ -24,12 +24,12 @@ class ParticipantStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'fullname' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8',
+            'name' => 'required|string|max:255',
+            'email' => 'nullable|email|unique:users,email',
+            'password' => 'nullable|string|min:8',
             'address' => 'nullable|string|max:255',
             'phone' => 'nullable|string|max:20',
-            'status' => 'required',
+            'status' => 'nullable',
             'image'=> 'required|mimes:jpg,jpeg,png,gif',
         ];
     }

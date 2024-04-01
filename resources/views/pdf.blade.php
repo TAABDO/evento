@@ -21,10 +21,10 @@
                 <div class="p-4">
                     {{--  @foreach($users as $user)  --}}
                         <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-gray-50">
-                            <h1 class="text-xl font-semibold text-gray-800">{{ $users->name }}</h1>
-                            <p class="text-sm text-gray-600">{{ $users->name }}</p>
+                            <h1 class="text-xl font-semibold text-gray-800">{{ $user->name }}</h1>
+                            <p class="text-sm text-gray-600">{{ $user->name }}</p>
                             <div class="flex justify-between items-center mt-2">
-                                <span class="text-xs text-gray-500">{{ $users->name }}</span>
+                                <span class="text-xs text-gray-500">{{ $user->name }}</span>
                                 <button class="text-xs text-white bg-blue-600 px-3 py-1 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Details</button>
                             </div>
                         </div>
